@@ -68,11 +68,11 @@ WithActivityNames <- merge(ForMeanAndStd, activityLabels,
 # 4. Appropriately labeling the data set with descriptive variable names.
 # Completed in steps 1.3, 2.2, 2.3
 
-# 5. Creating an additional tidy data set with the average of each variable for each activity and each subject:
+# 5. Creating a tidy data set with the average of each variable for each activity and each subject:
 
 # 5.1 Making alt tidy data set 
-ALTTidySet <- aggregate(. ~subjectId + activityId, WithActivityNames, mean)
-ALTTidySet <- ALTTidySet[order(ALTTidySet$subjectId, ALTTidySet$activityId),]
+TidySet <- aggregate(. ~subjectId + activityId, WithActivityNames, mean)
+TidySet <- TidySet[order(TidySet$subjectId, TidySet$activityId),]
 
-# 5.2 Writing additional/ALT tidy data set in txt file
-write.table(ALTTidySet, "ALTTidySet.txt", row.name=FALSE)
+# 5.2 Writing  tidy data set in txt file
+write.table(TidySet, "Tidy.txt", row.name=FALSE)
